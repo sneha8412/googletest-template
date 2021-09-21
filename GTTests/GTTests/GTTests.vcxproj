@@ -144,6 +144,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GTTests.cpp" />
+    <ClCompile Include="linkedlist.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="linkedlist.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

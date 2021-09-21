@@ -3,10 +3,49 @@
 
 #include <iostream>
 #include <gtest/gtest.h>
+#include "linkedlist.h"
 
 TEST(GTTests, AssertTrue) {
     ASSERT_TRUE(true);
 }
+
+///*
+TEST(GTTests, GetLinkedListValuesTest) {
+    
+    // Setup
+    Node* n = new Node();
+
+    n->Value = 10;
+    n->Next = new Node();
+    n->Next->Value = 20;
+    
+    // Act
+    vector<int> values = getLinkedListValues(n);
+
+    // Assert
+    //ASSERT_TRUE(values != NULL);
+    ASSERT_EQ(values.size(), 2);
+}//*/
+
+TEST(GTTests, LinkedListTestInsert) {
+
+    Node* head = new Node();
+    Node* second = new Node();
+    Node* third = new Node();
+
+    //access values in the class instead of dot notation incase you are using pointers
+    //head inside its value property
+    //ading the values to a linked list
+    head->Value = 1;
+    head->Next = second;//linking to the second element, next value is second
+    second->Value = 2;
+    second->Next = third;
+    third->Value = 3;
+    third->Next = NULL;
+
+    ASSERT_TRUE(true);
+}
+
 
 /**
 int main()
