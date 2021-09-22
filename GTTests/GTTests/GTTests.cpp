@@ -9,7 +9,6 @@ TEST(GTTests, AssertTrue) {
     ASSERT_TRUE(true);
 }
 
-///*
 TEST(GTTests, GetLinkedListValuesTest) {
     
     // Setup
@@ -28,6 +27,8 @@ TEST(GTTests, GetLinkedListValuesTest) {
 }//*/
 
 TEST(GTTests, LinkedListTestInsert) {
+
+    //setup
 
     Node* head = new Node();
     Node* second = new Node();

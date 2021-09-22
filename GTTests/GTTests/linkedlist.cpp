@@ -86,6 +86,7 @@ void deleteNode(Node* head, Node* n) {
     //1.check if the list is empty
     if (head == NULL) {
         cout << false << endl;
+        return;
     }
     //if the node to be deleted is the head node
     if (head == n) {
