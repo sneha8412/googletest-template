@@ -26,28 +26,55 @@ TEST(GTTests, GetLinkedListValuesTest) {
     ASSERT_EQ(values.size(), 2);
 }//*/
 
-TEST(GTTests, LinkedListTestInsert) {
+TEST(GTTests, TestInsertAtTheFront) {
 
     //setup
+    Node* existingHead = new Node();
+    existingHead->Value = 10;
 
-    Node* head = new Node();
-    Node* second = new Node();
-    Node* third = new Node();
+    ASSERT_EQ(existingHead->Value, 10);
 
-    //access values in the class instead of dot notation incase you are using pointers
-    //head inside its value property
-    //ading the values to a linked list
-    head->Value = 1;
-    head->Next = second;//linking to the second element, next value is second
-    second->Value = 2;
-    second->Next = third;
-    third->Value = 3;
-    third->Next = NULL;
+    // act
+    insertAtTheFront(&existingHead, 9);
 
-    ASSERT_TRUE(true);
+    // assert
+    ASSERT_EQ(existingHead->Value, 9);
+    ASSERT_EQ(lengthOfList(existingHead), 2);
 }
 
+TEST(GTTests, TestInsertAtTheEnd) { 
+    //setup
+    Node* existingHead = new Node();
+    existingHead->Value = 20;
 
+    ASSERT_EQ(existingHead->Value, 20);
+
+    insertAtTheEnd(existingHead, 15);
+
+    ASSERT_EQ(existingHead->Value, 20);
+    ASSERT_EQ(existingHead->Next->Value, 15);
+    ASSERT_EQ(lengthOfList(existingHead), 2);
+}
+
+TEST(GTTests, TestInsertAfter) {
+    //setup
+    Node* previous = new Node();
+    previous->Value = 6;
+
+    insertAtTheEnd(previous, 8);
+    ASSERT_EQ(previous->Value, 6);
+   
+    //Act
+    insertAfter(previous, 3);
+
+    //assert
+    ASSERT_EQ(previous->Next->Value, 3);
+    ASSERT_EQ(lengthOfList(previous), 3);
+}
+
+TEST(GTTests, TestSearchNode) {
+
+}
 /**
 int main()
 {
