@@ -9,7 +9,7 @@ TEST(GTTests, AssertTrue) {
     ASSERT_TRUE(true);
 }
 
-TEST(GTTests, GetLinkedListValuesTest) {
+TEST(GTTests, TestGetLinkedListValues) {
     
     // Setup
     Node* n = new Node();
@@ -162,6 +162,20 @@ TEST(GTTests, TestDeleteNode) {
 //=========TESt GET AT INDEX=============================================
 
 TEST(GTTest, TestGetAtIndex) {
+    //setup
+    Node* existingHead = new Node();
+    existingHead->Value = 1;
+    Node* current = new Node();
+    current->Value = 2;
+    existingHead->Next = current;
+    Node* newNode = new Node();
+    newNode->Value = 3;
+    newNode->Next = NULL;
+    current->Next = newNode;
+
+    getAtIndex(existingHead, 1);
+
+    ASSERT_EQ(getAtIndex(existingHead, 1), 2);
 
 
 }
