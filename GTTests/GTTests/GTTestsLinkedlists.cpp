@@ -8,9 +8,6 @@
 TEST(LinkedListTests, AssertTrue) {
     ASSERT_TRUE(true);
 }
-
-
-
 TEST(LinkedListTests, TestGetLinkedListValues) {
     
     // Setup
