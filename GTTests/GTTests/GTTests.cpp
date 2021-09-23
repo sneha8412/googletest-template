@@ -56,6 +56,7 @@ TEST(GTTests, TestInsertAtTheEnd) {
     ASSERT_EQ(lengthOfList(existingHead), 2);
 }
 
+//===========TEST INSERT AFTER===================================
 TEST(GTTests, TestInsertAfter) {
     //setup
     Node* previous = new Node();
@@ -72,15 +73,118 @@ TEST(GTTests, TestInsertAfter) {
     ASSERT_EQ(lengthOfList(previous), 3);
 }
 
+//=========TEST SEARCH NODE================================================
 TEST(GTTests, TestSearchNode) {
+    //setup
+    //instantiate head
+    Node* existingHead = new Node();
+    existingHead->Value = 1;
+    //instantiate current
+    Node* current = new Node();
+    current->Value = 2;
+    existingHead->Next = current;
+    //instantiate newNode
+    Node* newNode = new Node();
+    newNode->Value = 3;
+    current->Next = newNode;
+    newNode->Next = NULL;
+
+    ASSERT_EQ(lengthOfList(existingHead), 3);
+    //if the value exists
+    searchNode(existingHead, 2);
+    ASSERT_TRUE(true);
+
+    //if the value does not exist
+    searchNode(existingHead, 5);
+    ASSERT_FALSE(false);
+}
+
+TEST(GTTests, TestSearchNodeOnEmptyList) {
+    //setup
+    Node* existingHead = new Node();
+    existingHead = NULL;
+    searchNode(existingHead, 2);
+    ASSERT_FALSE(false);
+}
+
+//==============TEST LENGTH OF LIST===================================
+TEST(GTTests, TestLengthOfList) {
+    //setup
+    Node* existingHead = new Node();
+    existingHead->Value = 1;
+    Node* current = new Node();
+    current->Value = 2;
+    existingHead->Next = current;
+    Node* newNode = new Node();
+    newNode->Value = 3;
+    newNode->Next = NULL;
+    current->Next = newNode;
+
+    //act
+    lengthOfList(existingHead);
+
+    //assert
+    ASSERT_EQ(lengthOfList(existingHead), 3);
 
 }
-/**
-int main()
-{
-    std::cout << "Hello World!\n";
-    return 0;
-}*/
+
+TEST(GTTests, TestLengthOfListOnEmptyList) {
+    //setup
+    Node* existingHead = new Node();
+    existingHead = NULL;
+
+    lengthOfList(existingHead);
+
+    //assert
+    ASSERT_EQ(lengthOfList(existingHead), 0);
+
+}
+
+//===============TESt DELETE NODE=====================================
+
+TEST(GTTests, TestDeleteNode) {
+    //setup
+    Node* existingHead = new Node();
+    existingHead->Value = 10;
+    Node* previous = new Node();
+    previous->Value = 6;
+
+    insertAtTheFront(&existingHead, 9);
+    insertAtTheEnd(existingHead, 15);
+    insertAfter(previous, 3);
+
+    //Act
+    ASSERT_EQ(lengthOfList, 3);
+
+
+}
+
+//=========TESt GET AT INDEX=============================================
+
+TEST(GTTest, TestGetAtIndex) {
+
+
+}
+//===============TEST REVERSE LIST ================================
+/*TEST(GTTests, TestReverseList) {
+    Node* existingHead = new Node();
+    existingHead->Value = 1;
+    Node* current = new Node();
+    current->Value = 2;
+    existingHead->Next = current;
+    Node* previous = new Node();
+    previous->Value = 3;
+    previous->Next = NULL;
+    current->Next = previous;
+    ASSERT_EQ(lengthOfList(existingHead), 3);
+
+
+    //reverseList(existingHead);
+
+    //ASSERT_EQ(existingHead, previous );
+    }*/
+
+
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
