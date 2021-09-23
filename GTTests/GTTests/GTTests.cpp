@@ -1,15 +1,17 @@
-// GTTests.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// LinkedListTests.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
 #include <gtest/gtest.h>
 #include "linkedlist.h"
 
-TEST(GTTests, AssertTrue) {
+TEST(LinkedListTests, AssertTrue) {
     ASSERT_TRUE(true);
 }
 
-TEST(GTTests, TestGetLinkedListValues) {
+
+
+TEST(LinkedListTests, TestGetLinkedListValues) {
     
     // Setup
     Node* n = new Node();
@@ -24,9 +26,9 @@ TEST(GTTests, TestGetLinkedListValues) {
     // Assert
     //ASSERT_TRUE(values != NULL);
     ASSERT_EQ(values.size(), 2);
-}//*/
+}
 
-TEST(GTTests, TestInsertAtTheFront) {
+TEST(LinkedListTests, TestInsertAtTheFront) {
 
     //setup
     Node* existingHead = new Node();
@@ -42,7 +44,7 @@ TEST(GTTests, TestInsertAtTheFront) {
     ASSERT_EQ(lengthOfList(existingHead), 2);
 }
 
-TEST(GTTests, TestInsertAtTheEnd) { 
+TEST(LinkedListTests, TestInsertAtTheEnd) { 
     //setup
     Node* existingHead = new Node();
     existingHead->Value = 20;
@@ -57,7 +59,7 @@ TEST(GTTests, TestInsertAtTheEnd) {
 }
 
 //===========TEST INSERT AFTER===================================
-TEST(GTTests, TestInsertAfter) {
+TEST(LinkedListTests, TestInsertAfter) {
     //setup
     Node* previous = new Node();
     previous->Value = 6;
@@ -74,7 +76,7 @@ TEST(GTTests, TestInsertAfter) {
 }
 
 //=========TEST SEARCH NODE================================================
-TEST(GTTests, TestSearchNode) {
+TEST(LinkedListTests, TestSearchNode) {
     //setup
     //instantiate head
     Node* existingHead = new Node();
@@ -99,7 +101,7 @@ TEST(GTTests, TestSearchNode) {
     ASSERT_FALSE(false);
 }
 
-TEST(GTTests, TestSearchNodeOnEmptyList) {
+TEST(LinkedListTests, TestSearchNodeOnEmptyList) {
     //setup
     Node* existingHead = new Node();
     existingHead = NULL;
@@ -108,7 +110,7 @@ TEST(GTTests, TestSearchNodeOnEmptyList) {
 }
 
 //==============TEST LENGTH OF LIST===================================
-TEST(GTTests, TestLengthOfList) {
+TEST(LinkedListTests, TestLengthOfList) {
     //setup
     Node* existingHead = new Node();
     existingHead->Value = 1;
@@ -128,7 +130,7 @@ TEST(GTTests, TestLengthOfList) {
 
 }
 
-TEST(GTTests, TestLengthOfListOnEmptyList) {
+TEST(LinkedListTests, TestLengthOfListOnEmptyList) {
     //setup
     Node* existingHead = new Node();
     existingHead = NULL;
@@ -142,32 +144,52 @@ TEST(GTTests, TestLengthOfListOnEmptyList) {
 
 //===============TESt DELETE NODE=====================================
 
-TEST(GTTests, TestDeleteNode) {
+///*
+TEST(LinkedListTests, TestDeleteNode) {
     //setup
-    Node* existingHead = new Node();
-    existingHead->Value = 10;
-    Node* previous = new Node();
-    previous->Value = 6;
+    Node* head = new Node();
+    head->Value = 10;
+    
+    Node* first = new Node();
+    first->Value = 20;
+    head->Next = first;
+    
+    Node* second = new Node();
+    second->Value = 30;
+    first->Next = second;
 
-    insertAtTheFront(&existingHead, 9);
-    insertAtTheEnd(existingHead, 15);
-    insertAfter(previous, 3);
+    // Act -- delete first node
+    deleteNode(head, first);
+    // Assert
+    ASSERT_EQ(head->Next->Value, 30);
+    ASSERT_EQ(lengthOfList(head), 2);
 
-    //Act
-    ASSERT_EQ(lengthOfList, 3);
+    // Act -- delete head
+    deleteNode(head, head);
+    // Assert
+    ASSERT_EQ(head->Value, 30);
+    ASSERT_EQ(lengthOfList(head), 1);
 
-
+    // Act -- delete only reamining node
+    deleteNode(head, head);
+    // Assert
+    ASSERT_EQ(head->Value, 30);
+    ASSERT_EQ(lengthOfList(head), 1);
 }
+
 
 //=========TESt GET AT INDEX=============================================
 
-TEST(GTTest, TestGetAtIndex) {
+///*
+TEST(LinkedListTests, TestGetAtIndex) {
     //setup
     Node* existingHead = new Node();
     existingHead->Value = 1;
+    
     Node* current = new Node();
     current->Value = 2;
     existingHead->Next = current;
+    
     Node* newNode = new Node();
     newNode->Value = 3;
     newNode->Next = NULL;
@@ -177,26 +199,42 @@ TEST(GTTest, TestGetAtIndex) {
 
     ASSERT_EQ(getAtIndex(existingHead, 1), 2);
 
-
 }
+//*/
+
+//=================TEST FIND MID VALUE ============================
+    
+
+
+
+
+
 //===============TEST REVERSE LIST ================================
-/*TEST(GTTests, TestReverseList) {
-    Node* existingHead = new Node();
-    existingHead->Value = 1;
-    Node* current = new Node();
-    current->Value = 2;
-    existingHead->Next = current;
-    Node* previous = new Node();
-    previous->Value = 3;
-    previous->Next = NULL;
-    current->Next = previous;
-    ASSERT_EQ(lengthOfList(existingHead), 3);
+TEST(LinkedListTests, TestReverseList) {
+    
+    Node* head = new Node();
+    head->Value = 1;
+    
+    Node* first = new Node();
+    first->Value = 2;
+    head->Next = first;
 
+    Node* second = new Node();
+    second->Value = 3;
+    second->Next = NULL;
+    first->Next = second;
 
-    //reverseList(existingHead);
+    // Act
+    reverseList(head);
 
-    //ASSERT_EQ(existingHead, previous );
-    }*/
+    vector<int> reversedListValues = getLinkedListValues(second);
+
+    vector<int> expectedReversedvalues{ second->Value, first->Value, head->Value };
+
+    ASSERT_EQ(reversedListValues, expectedReversedvalues);
+
+    ASSERT_EQ(lengthOfList(second), 3);
+ }
 
 
 

@@ -154,7 +154,9 @@ int lengthOfList(Node* head) {
 
 //============REVERSE A LINKED LIST======================================
 void reverseList(Node* head) {
-    Node* previous, * current, * temp;
+    Node* previous;
+    Node* current; 
+    Node* temp;
     previous = NULL;
     current = head;
 
