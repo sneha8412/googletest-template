@@ -2,8 +2,7 @@
 
 #include <iostream>
 #include <vector>
-#include <iostream>
-using namespace std;
+#include <stdlib.h>
 
 //this linkedlist will have 3 elements
 class Node {
@@ -20,7 +19,7 @@ void printList(Node* n);
 
 //======Return Array of THE LINKED LIST values======================================================================
 
-vector<int> getLinkedListValues(Node* n);
+std::vector<int> getLinkedListValues(Node* n);
 
 //============INSERT NODE AT THE HEAD==============================================================================
 //insert a new node in the linked list in the start, end and anywhere in between

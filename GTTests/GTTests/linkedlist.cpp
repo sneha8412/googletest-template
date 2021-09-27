@@ -10,16 +10,16 @@
 void printList(Node* n) {
     //needs to recieve the head element as it has the pointer to the next element
     while (n != NULL) {
-        cout << n->Value << endl;
+        std::cout << n->Value << std::endl;
         n = n->Next;
     }
 }
 
 //======Return Array of THE LINKED LIST values======================================================================
 
-vector<int> getLinkedListValues(Node* n) {
+std::vector<int> getLinkedListValues(Node* n) {
     
-    vector<int> vect;
+    std::vector<int> vect;
     //needs to recieve the head element as it has the pointer to the next element
     while (n != NULL) {
         vect.push_back(n->Value);
@@ -68,7 +68,7 @@ void insertAtTheEnd(Node* head, int newValue) {
 void insertAfter(Node* previous, int newValue) {
     //1. check if the previous node is NULL
     if (previous == NULL) {
-        cout << "Previous can not be NULL";
+        std::cout << "Previous can not be NULL";
         return;
     }
     //2. prepare a newNode
@@ -86,13 +86,13 @@ void insertAfter(Node* previous, int newValue) {
 void deleteNode(Node* head, Node* n) {
     //1.check if the list is empty
     if (head == NULL) {
-        cout << false << endl;
+        std::cout << false << std::endl;
         return;
     }
     //if the node to be deleted is the head node
     if (head == n) {
         if (head->Next == NULL) {
-            cout << "there is only one node. the list node cannot be deleted" << endl;
+            std::cout << "there is only one node. the list node cannot be deleted" << std::endl;
             return;
         }
         //copy the value of the next node to the head

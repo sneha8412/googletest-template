@@ -18,7 +18,7 @@ TEST(LinkedListTests, TestGetLinkedListValues) {
     n->Next->Value = 20;
     
     // Act
-    vector<int> values = getLinkedListValues(n);
+    std::vector<int> values = getLinkedListValues(n);
 
     // Assert
     //ASSERT_TRUE(values != NULL);
@@ -224,9 +224,9 @@ TEST(LinkedListTests, TestReverseList) {
     // Act
     reverseList(head);
 
-    vector<int> reversedListValues = getLinkedListValues(second);
+    std::vector<int> reversedListValues = getLinkedListValues(second);
 
-    vector<int> expectedReversedvalues{ second->Value, first->Value, head->Value };
+    std::vector<int> expectedReversedvalues{ second->Value, first->Value, head->Value };
 
     ASSERT_EQ(reversedListValues, expectedReversedvalues);
 

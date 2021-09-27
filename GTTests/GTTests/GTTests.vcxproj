@@ -143,11 +143,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GTTests.cpp" />
+    <ClCompile Include="GTTestQueue.cpp" />
+    <ClCompile Include="GTTestsLinkedlists.cpp" />
     <ClCompile Include="linkedlist.cpp" />
+    <ClCompile Include="BrinarySearchTrees.cpp" />
+    <ClCompile Include="GTTestsBinarySearchTrees.cpp" />
+    <ClCompile Include="Queue.cpp" />
+    <ClCompile Include="StackImpl.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BinarySearchTrees.h" />
     <ClInclude Include="linkedlist.h" />
+    <ClInclude Include="Queue.h" />
+    <ClInclude Include="StackImpl.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
