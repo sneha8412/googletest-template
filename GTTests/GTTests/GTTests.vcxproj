@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClCompile Include="GTTestQueue.cpp" />
     <ClCompile Include="GTTestsLinkedlists.cpp" />
+    <ClCompile Include="GTTestsStackImpl.cpp" />
     <ClCompile Include="linkedlist.cpp" />
     <ClCompile Include="BrinarySearchTrees.cpp" />
     <ClCompile Include="GTTestsBinarySearchTrees.cpp" />

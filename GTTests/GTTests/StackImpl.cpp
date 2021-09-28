@@ -3,7 +3,6 @@
 #include "StackImpl.h"
 
 
-
 	Stack::Stack() {
 		m_top = -1;
 		for (int i = 0; i < 5; i++) {
@@ -78,11 +77,12 @@
 
 	}
 
-	int Stack::display() {
+	void Stack::display() {
 		std::cout << "All values in the stack are" << std::endl;
 		for (int i = 4; i >= 0; i--) {
 			std::cout << m_array[i] << std::endl;
 		}
 	}
+	
 
 

@@ -25,7 +25,7 @@ class Stack {
 
 	void change(int index, int value);
 
-	int display();
+	void display();
 		
 };
 
