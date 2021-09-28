@@ -14,7 +14,6 @@ public:
 
 	bool isEmpty();
 
-
 	bool isFull();
 
 	void enqueue(int val);

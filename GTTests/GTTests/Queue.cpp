@@ -9,6 +9,7 @@
 			m_arr[i] = 0;
 		}
 	}
+
 	bool Queue::isEmpty() {
 		if (m_front == -1 && m_rear == -1) {
 			return true;
