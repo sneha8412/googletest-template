@@ -1,7 +1,6 @@
 #include "BinarySearchTrees.h"
 #include <iostream>
 #include <vector>
-//using namespace std;//bad practice
 //rename the namespace  using directives
 #include <stdlib.h>
 

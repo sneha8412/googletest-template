@@ -87,10 +87,10 @@ TEST(StackTests, TestToChangeAValue) {
 	s->push(10);
 
 	//act
-	//s->change(2, 7);
-	//s->int m_array[2];
+	s->change(3, 7);
+	int peekVal = s->peek(3);
 	//assert
-	//ASSERT_EQ(value, 7);
+	ASSERT_EQ(peekVal, 7 );
 
 }
 
@@ -123,12 +123,3 @@ TEST(StackTests, TestToCount) {
 
 }
 
-//TEST(StackTests, TestToDisplay) {
-	
-	//act
-    //	s->display();
-
-	//assert
-	
-
-//}
